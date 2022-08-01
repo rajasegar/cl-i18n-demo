@@ -29,19 +29,24 @@
 
 (setf (cl-locale:current-dictionary) :i18n-dictionary)
 
-(djula:def-filter :i18n-en (val)
-	(cl-locale:i18n val :locale :en))
+
+(djula:def-filter :i18n (val)
+	(cl-locale:i18n val :locale djula:*current-language*))
 ;;
 ;; Routing rules
 
 (defroute "/" ()
 	(let ((djula:*current-language* :en))
   (render #P"index.html" (list
-													:calendar (cl-locale:i18n "Calendar" :locale :en)))))
+													:calendar "Calendar"
+													:library "Library"))))
 
 (defroute "/fr" ()
+	(let ((djula:*current-language* :fr))
   (render #P"french.html" (list
-													:calendar (cl-locale:i18n "Calendar" :locale :fr))))
+													 :calendar "Calendar"
+													 :library "Library"
+													 ))))
 
 ;;
 ;; Error pages

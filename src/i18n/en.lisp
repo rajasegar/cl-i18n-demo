@@ -1,1 +1,3 @@
-(("Calendar" . "Calendar"))
+(
+ ("Calendar" . "Calendar")
+ ("Library" . "Library"))
