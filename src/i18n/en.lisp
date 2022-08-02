@@ -1,3 +1,7 @@
 (
  ("Calendar" . "Calendar")
- ("Library" . "Library"))
+ ("Library" . "Library")
+ ("Bio" . "I am :name")
+ ("importing" . "Importing... :progress%")
+ ("estimated-minutes-remaining" .  "Estimated  :minutes minutes remaining")
+ )

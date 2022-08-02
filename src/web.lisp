@@ -27,26 +27,21 @@
   (:en (merge-pathnames #P"src/i18n/en.lisp" *application-root*))
   (:fr (merge-pathnames #P"src/i18n/fr.lisp" *application-root*)))
 
+
 (setf (cl-locale:current-dictionary) :i18n-dictionary)
 
-
-(djula:def-filter :i18n (val)
-	(cl-locale:i18n val :locale djula:*current-language*))
 ;;
 ;; Routing rules
 
 (defroute "/" ()
-	(let ((djula:*current-language* :en))
-  (render #P"index.html" (list
-													:calendar "Calendar"
-													:library "Library"))))
+	(let ((djula:*current-language* :en)
+				(djula:*translation-backend* :locale))
+  (render #P"index.html" )))
 
 (defroute "/fr" ()
-	(let ((djula:*current-language* :fr))
-  (render #P"french.html" (list
-													 :calendar "Calendar"
-													 :library "Library"
-													 ))))
+	(let ((djula:*current-language* :fr)
+				(djula:*translation-backend* :locale))
+  (render #P"french.html" )))
 
 ;;
 ;; Error pages

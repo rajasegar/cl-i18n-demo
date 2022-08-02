@@ -1,11 +1,13 @@
 {% extends "layouts/default.html" %}
-{% block title %}Welcome to Caveman2{% endblock %}
+{% block title %}CL i18n demo - French{% endblock %}
 {% block content %}
 <div id="main">
 	<h1>French</h1>
   Welcome to <a href="http://8arrow.org/caveman/">Caveman2</a>!
-	<h2>{{ calendar }}</h2>
-	<h3>Using Djula filter: {{ calendar | i18n }}</h3>
-	<h3>Using Djula filter: {{ library | i18n }}</h3>
+	<h2>Calendar: {_ "Calendar" _}</h2>
+	<h3>Library: {_ "Library" _}</h3>
+	<h3>Bio: {_ "Bio" :name "Rajasegar" _}</h3>
+	<p>Progress: {_ "importing" :progress 56 _}</p>
+	<p>Time: {_ "estimated-minutes-remaining" :minutes 30 _}</p>
 </div>
 {% endblock %}
